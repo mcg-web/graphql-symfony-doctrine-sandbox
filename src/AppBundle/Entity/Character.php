@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Entity;
+
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -8,6 +9,8 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Character
 {
+    use FromArrayTrait;
+
     const TYPE_HUMAN = 'Human';
     const TYPE_DROID = 'Droid';
 
@@ -186,13 +189,6 @@ class Character
     {
         $this->primaryFunction = $primaryFunction;
         return $this;
-    }
-
-    public function fromArray(array $data)
-    {
-        foreach($data as $property => $value) {
-            $this->$property = $value;
-        }
     }
 
     /**
