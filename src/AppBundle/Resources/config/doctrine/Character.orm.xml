@@ -15,6 +15,7 @@
     <field name="homePlanet" type="string" column="home_planet" length="255" nullable="true"/>
     <field name="type" type="string" column="type" length="255"/>
     <field name="primaryFunction" type="string" column="primary_function" length="255" nullable="true"/>
+    <field name="appearsIn" type="json_array" column="appears_in"/>
     <many-to-many field="friends" target-entity="AppBundle\Entity\Character">
       <join-table name="friends">
         <join-columns>

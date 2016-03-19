@@ -42,6 +42,11 @@ class Character
     private $primaryFunction;
 
     /**
+     * @var array
+     */
+    private $appearsIn;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -188,5 +193,29 @@ class Character
         foreach($data as $property => $value) {
             $this->$property = $value;
         }
+    }
+
+    /**
+     * Set appearsIn
+     *
+     * @param array $appearsIn
+     *
+     * @return Character
+     */
+    public function setAppearsIn($appearsIn)
+    {
+        $this->appearsIn = $appearsIn;
+
+        return $this;
+    }
+
+    /**
+     * Get appearsIn
+     *
+     * @return array
+     */
+    public function getAppearsIn()
+    {
+        return $this->appearsIn;
     }
 }

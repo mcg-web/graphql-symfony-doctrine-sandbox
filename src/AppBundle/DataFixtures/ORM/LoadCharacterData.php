@@ -25,7 +25,7 @@ class LoadUserData implements FixtureInterface
     private function loadCharacters(ObjectManager $manager, array $characters, $type)
     {
         foreach($characters as $data) {
-            unset($data['friends'], $data['appearsIn']);
+            unset($data['friends']);
             $data['type'] = $type;
 
             $character = new Character();
@@ -46,7 +46,6 @@ class LoadUserData implements FixtureInterface
             $character = $this->characters[$data['id']];
             foreach ($data['friends'] as $friendId) {
                 $friend = $this->characters[$friendId];
-
                 $character->addFriend($friend);
             }
             $manager->persist($character);

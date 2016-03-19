@@ -25,7 +25,7 @@ class CharacterResolver implements ContainerAwareInterface
 
     public function resolveHero($args)
     {
-        return StarWarsData::getHero(isset($args['episode']) ? $args['episode'] : null);
+        return $this->getHero($args['episode']);
     }
 
     public function resolveHuman($args)
@@ -45,6 +45,19 @@ class CharacterResolver implements ContainerAwareInterface
             return;
         }
         return $type === $character->getType() ? $character : null;
+    }
+
+    private function getHero($episode)
+    {
+        if ($episode === 5) {
+            // Luke is the hero of Episode V.
+            $id = 1000;
+        } else {
+            // Artoo is the hero otherwise.
+            $id = 2001;
+        }
+
+        return $this->getCharacter($id);
     }
 
     /**
