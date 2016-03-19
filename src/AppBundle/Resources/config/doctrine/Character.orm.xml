@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="AppBundle\Entity\Repository\CharacterRepository"
+          name="AppBundle\Entity\Character"
+          table="main_character">
+    <indexes>
+      <index columns="type"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="name" type="string" column="name" length="255" unique="true"/>
+    <field name="homePlanet" type="string" column="home_planet" length="255" nullable="true"/>
+    <field name="type" type="string" column="type" length="255"/>
+    <field name="primaryFunction" type="string" column="primary_function" length="255" nullable="true"/>
+    <many-to-many field="friends" target-entity="AppBundle\Entity\Character">
+      <join-table name="friends">
+        <join-columns>
+          <join-column name="user_id" referenced-column-name="id" />
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="friend_id" referenced-column-name="id" />
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

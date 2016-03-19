@@ -21,7 +21,6 @@ Human:
             friends:
                 type: "[Character]"
                 description: "The friends of the character."
-                resolve: "@=resolver('character_friends', [value])"
             appearsIn:
                 type: "[Episode]"
                 description: "Which movies they appear in."
