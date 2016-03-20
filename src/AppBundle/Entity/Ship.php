@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Ship.
@@ -18,6 +19,19 @@ class Ship
      * @var string
      */
     private $name;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $factions;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->factions = new ArrayCollection();
+    }
 
     /**
      * Get id.
@@ -62,5 +76,39 @@ class Ship
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Add faction
+     *
+     * @param Faction $faction
+     *
+     * @return Ship
+     */
+    public function addFaction(Faction $faction)
+    {
+        $this->factions[] = $faction;
+
+        return $this;
+    }
+
+    /**
+     * Remove faction
+     *
+     * @param Faction $faction
+     */
+    public function removeFaction(Faction $faction)
+    {
+        $this->factions->removeElement($faction);
+    }
+
+    /**
+     * Get factions
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFactions()
+    {
+        return $this->factions;
     }
 }

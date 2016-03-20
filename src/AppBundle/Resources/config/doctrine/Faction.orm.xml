@@ -9,7 +9,7 @@
     </id>
     <field name="name" type="string" column="name" length="255"/>
     <field name="type" type="string" column="type" length="255"/>
-    <many-to-many field="ships" target-entity="AppBundle\Entity\Ship">
+    <many-to-many field="ships" target-entity="AppBundle\Entity\Ship" inversed-by="factions">
       <join-table name="faction_ship">
         <join-columns>
           <join-column name="faction_id" referenced-column-name="id" />

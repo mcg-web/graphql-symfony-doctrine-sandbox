@@ -23,8 +23,7 @@ class ShipMutation implements ContainerAwareInterface
 
         $ship = new Ship();
         $ship->setName($shipName);
-
-        $faction->addShip($ship);
+        $ship->addFaction($faction);
 
         $em->persist($ship);
         $em->persist($faction);

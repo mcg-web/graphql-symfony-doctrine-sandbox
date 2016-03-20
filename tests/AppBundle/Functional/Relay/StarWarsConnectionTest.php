@@ -260,4 +260,120 @@ EOF;
 
         $this->assertQuery($query, $jsonExpected);
     }
+
+    public function testFetchesShipsWithLastBeforeAndAfter()
+    {
+        $query = <<<EOF
+query EndOfRebelShipsWithLastAndBeforeAndAfterQuery {
+  rebels {
+    name
+    ships: ships(last: 3, before: "YXJyYXljb25uZWN0aW9uOjQ=", after: "YXJyYXljb25uZWN0aW9uOjE=") {
+      edges {
+        cursor
+        node {
+          name
+        }
+      }
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+      }
+    }
+  }
+}
+EOF;
+
+        $jsonExpected = <<<EOF
+{
+  "data": {
+    "rebels": {
+      "name": "Alliance to Restore the Republic",
+      "ships": {
+        "edges": [
+          {
+            "cursor": "YXJyYXljb25uZWN0aW9uOjI=",
+            "node": {
+              "name": "A-Wing"
+            }
+          },
+          {
+            "cursor": "YXJyYXljb25uZWN0aW9uOjM=",
+            "node": {
+              "name": "Millenium Falcon"
+            }
+          }
+        ],
+        "pageInfo": {
+          "hasNextPage": false,
+          "hasPreviousPage": false
+        }
+      }
+    }
+  }
+}
+EOF;
+
+        $this->assertQuery($query, $jsonExpected);
+    }
+
+    public function testFetchesShipsWithLastAfter()
+    {
+        $query = <<<EOF
+query EndOfRebelShipsWithLastAndAfterQuery {
+  rebels {
+    name
+    ships: ships(last: 3, after: "YXJyYXljb25uZWN0aW9uOjE=") {
+      edges {
+        cursor
+        node {
+          name
+        }
+      }
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+      }
+    }
+  }
+}
+EOF;
+
+        $jsonExpected = <<<EOF
+{
+  "data": {
+    "rebels": {
+      "name": "Alliance to Restore the Republic",
+      "ships": {
+        "edges": [
+          {
+            "cursor": "YXJyYXljb25uZWN0aW9uOjI=",
+            "node": {
+              "name": "A-Wing"
+            }
+          },
+          {
+            "cursor": "YXJyYXljb25uZWN0aW9uOjM=",
+            "node": {
+              "name": "Millenium Falcon"
+            }
+          },
+          {
+            "cursor": "YXJyYXljb25uZWN0aW9uOjQ=",
+            "node": {
+              "name": "Home One"
+            }
+          }
+        ],
+        "pageInfo": {
+          "hasNextPage": false,
+          "hasPreviousPage": false
+        }
+      }
+    }
+  }
+}
+EOF;
+
+        $this->assertQuery($query, $jsonExpected);
+    }
 }

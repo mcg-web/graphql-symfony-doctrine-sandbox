@@ -16,3 +16,6 @@ ShipConnection:
     type: relay-connection
     config:
         nodeType: Ship
+        connectionFields:
+            sliceSize:
+                type: "Int!"

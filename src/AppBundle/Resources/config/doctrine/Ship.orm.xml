@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="AppBundle\Entity\Ship" table="ship">
+  <entity
+    name="AppBundle\Entity\Ship"
+    table="ship"
+    repository-class="AppBundle\Entity\Repository\ShipRepository">
     <id name="id" type="integer" column="id">
       <generator strategy="AUTO"/>
     </id>
     <field name="name" type="string" column="name" length="255"/>
+    <many-to-many field="factions" mapped-by="ships" target-entity="AppBundle\Entity\Faction"/>
   </entity>
 </doctrine-mapping>
