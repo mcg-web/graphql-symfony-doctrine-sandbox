@@ -13,6 +13,7 @@ class Faction
 
     const TYPE_REBELS = 'Rebels';
     const TYPE_EMPIRE = 'Empire';
+    const TYPE_FAKE = 'fake';
 
     /**
      * @var int
@@ -54,6 +55,7 @@ class Faction
 
     /**
      * @param int $id
+     *
      * @return $this
      */
     public function setId($id)

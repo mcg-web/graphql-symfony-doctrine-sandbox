@@ -10,6 +10,7 @@ services:
         tags:
             - { name: overblog_graphql.resolver, alias: "faction_rebels", method: "resolveRebels" }
             - { name: overblog_graphql.resolver, alias: "faction_empire", method: "resolveEmpire" }
+            - { name: overblog_graphql.resolver, alias: "faction_fake", method: "resolveFake" }
             - { name: overblog_graphql.resolver, alias: "faction_ships", method: "resolveShips" }
 
     app.graph.mutation.ship:

@@ -103,6 +103,7 @@ class Character
 
     /**
      * @param int $id
+     *
      * @return $this
      */
     public function setId($id)

@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Entity;
+
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -26,7 +27,7 @@ class Ship
     private $factions;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -45,6 +46,7 @@ class Ship
 
     /**
      * @param int $id
+     *
      * @return $this
      */
     public function setId($id)
@@ -79,7 +81,7 @@ class Ship
     }
 
     /**
-     * Add faction
+     * Add faction.
      *
      * @param Faction $faction
      *
@@ -93,7 +95,7 @@ class Ship
     }
 
     /**
-     * Remove faction
+     * Remove faction.
      *
      * @param Faction $faction
      */
@@ -103,7 +105,7 @@ class Ship
     }
 
     /**
-     * Get factions
+     * Get factions.
      *
      * @return \Doctrine\Common\Collections\Collection
      */

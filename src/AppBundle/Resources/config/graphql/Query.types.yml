@@ -47,6 +47,9 @@ Query:
             empire:
                 type: "Faction"
                 resolve: "@=resolver('faction_empire', [])"
+            fake:
+                type: "Faction"
+                resolve: "@=resolver('faction_fake', [])"
             node:
                 builder: Node
                 builderConfig:

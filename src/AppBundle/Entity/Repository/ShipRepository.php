@@ -39,5 +39,4 @@ class ShipRepository extends EntityRepository
 
         return $qb;
     }
-
 }

@@ -26,13 +26,20 @@ class FactionResolver implements ContainerAwareInterface
         return $empire;
     }
 
+    public function resolveFake()
+    {
+        $fake = $this->getFactionByType(Faction::TYPE_FAKE);
+
+        return $fake;
+    }
+
     public function resolveShips(Faction $faction, $args)
     {
-//        $ships = $faction->getShips()->toArray();
-//        $connection = ConnectionBuilder::connectionFromArray($ships, $args);
-//        $connection->sliceSize = count($connection->edges);
-//
-//        return $connection;
+        //The old way
+        //$ships = $faction->getShips()->toArray();
+        //$connection = ConnectionBuilder::connectionFromArray($ships, $args);
+        //$connection->sliceSize = count($connection->edges);
+        //return $connection;
 
         /** @var ShipRepository $repository */
         $repository = $this->container
@@ -40,6 +47,9 @@ class FactionResolver implements ContainerAwareInterface
             ->getRepository('AppBundle:Ship');
 
         $arrayLength = $repository->countAllByFactionId($faction->getId());
+
+        //--------------------------------------------------------------------------------------------------------------
+        //todo move in vendor ?
         $beforeOffset = ConnectionBuilder::getOffsetWithDefault($args['before'], $arrayLength);
         $afterOffset = ConnectionBuilder::getOffsetWithDefault($args['after'], -1);
 
@@ -54,9 +64,10 @@ class FactionResolver implements ContainerAwareInterface
         }
         $offset = max($startOffset, 0);
         $limit = $endOffset - $startOffset;
+        //--------------------------------------------------------------------------------------------------------------
 
         $ships = $repository->retrieveShipsByFactionId($faction->getId(), $offset, $limit);
-        
+
         $connection = ConnectionBuilder::connectionFromArraySlice(
             $ships,
             $args,
