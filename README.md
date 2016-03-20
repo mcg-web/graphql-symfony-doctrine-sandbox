@@ -22,5 +22,5 @@ docker-compose up -d
 Endpoints
 ---------
 
-**GraphiQL :** (http://127.0.0.1/graphiql)[http://127.0.0.1/graphiql]
-**GraphQL :** http://127.0.0.1/
+- **GraphiQL :** (http://127.0.0.1/graphiql)[http://127.0.0.1/graphiql]
+- **GraphQL :** http://127.0.0.1/
