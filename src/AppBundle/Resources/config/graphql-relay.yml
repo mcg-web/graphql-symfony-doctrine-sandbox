@@ -1,0 +1,18 @@
+services:
+    app.graph.resolver.node:
+        class: AppBundle\GraphQL\Relay\Resolver\NodeResolver
+        tags:
+            - { name: overblog_graphql.resolver, alias: "node", method: "resolveNode" }
+            - { name: overblog_graphql.resolver, alias: "node_type", method: "resolveType" }
+
+    app.graph.resolver.faction:
+        class: AppBundle\GraphQL\Relay\Resolver\FactionResolver
+        tags:
+            - { name: overblog_graphql.resolver, alias: "faction_rebels", method: "resolveRebels" }
+            - { name: overblog_graphql.resolver, alias: "faction_empire", method: "resolveEmpire" }
+            - { name: overblog_graphql.resolver, alias: "faction_ships", method: "resolveShips" }
+
+    app.graph.mutation.ship:
+        class: AppBundle\GraphQL\Relay\Mutation\ShipMutation
+        tags:
+            - { name: overblog_graphql.mutation, alias: "create_ship", method: "createShip" }

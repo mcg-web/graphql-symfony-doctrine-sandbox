@@ -1,0 +1,10 @@
+Mutation:
+    type: object
+    config:
+        fields:
+            introduceShip:
+                builder: Mutation
+                builderConfig:
+                    inputType: IntroduceShipInput
+                    payloadType: IntroduceShipPayload
+                    mutateAndGetPayload: "@=mutation('create_ship', [value['shipName'], value['factionId']])"

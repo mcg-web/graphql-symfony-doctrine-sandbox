@@ -27,12 +27,14 @@
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
-        "overblog/graphql-bundle": "^0.1.2"
+        "overblog/graphql-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^3.0",
-        "doctrine/doctrine-fixtures-bundle": "^2.3"
+        "doctrine/doctrine-fixtures-bundle": "^2.3",
+        "phpunit/phpunit": "^4.1|^5.1",
+        "liip/functional-test-bundle": "^1.5"
     },
     "scripts": {
         "post-install-cmd": [

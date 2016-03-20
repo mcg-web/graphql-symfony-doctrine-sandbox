@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Character
+ * Character.
  */
 class Character
 {
@@ -50,7 +50,7 @@ class Character
     private $appearsIn;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -58,7 +58,7 @@ class Character
     }
 
     /**
-     * Add friend
+     * Add friend.
      *
      * @param Character $friend
      *
@@ -72,7 +72,7 @@ class Character
     }
 
     /**
-     * Remove friend
+     * Remove friend.
      *
      * @param Character $friend
      */
@@ -82,7 +82,7 @@ class Character
     }
 
     /**
-     * Get friends
+     * Get friends.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -92,7 +92,7 @@ class Character
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -102,7 +102,18 @@ class Character
     }
 
     /**
-     * Set name
+     * @param int $id
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Set name.
      *
      * @param string $name
      *
@@ -116,7 +127,7 @@ class Character
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -126,7 +137,7 @@ class Character
     }
 
     /**
-     * Set homePlanet
+     * Set homePlanet.
      *
      * @param string $homePlanet
      *
@@ -140,7 +151,7 @@ class Character
     }
 
     /**
-     * Get homePlanet
+     * Get homePlanet.
      *
      * @return string
      */
@@ -150,7 +161,7 @@ class Character
     }
 
     /**
-     * Set type
+     * Set type.
      *
      * @param string $type
      *
@@ -164,7 +175,7 @@ class Character
     }
 
     /**
-     * Get type
+     * Get type.
      *
      * @return string
      */
@@ -183,16 +194,18 @@ class Character
 
     /**
      * @param string $primaryFunction
+     *
      * @return Character
      */
     public function setPrimaryFunction($primaryFunction)
     {
         $this->primaryFunction = $primaryFunction;
+
         return $this;
     }
 
     /**
-     * Set appearsIn
+     * Set appearsIn.
      *
      * @param array $appearsIn
      *
@@ -206,7 +219,7 @@ class Character
     }
 
     /**
-     * Get appearsIn
+     * Get appearsIn.
      *
      * @return array
      */

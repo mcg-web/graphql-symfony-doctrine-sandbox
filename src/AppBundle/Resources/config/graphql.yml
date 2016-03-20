@@ -1,8 +1,6 @@
 services:
-    my.graph.resolver.character:
+    app.graph.resolver.character:
         class: AppBundle\GraphQL\Resolver\CharacterResolver
-        arguments:
-            - "@overblog_graphql.type_resolver"
         tags:
             - { name: overblog_graphql.resolver, alias: "character_type", method: "resolveType" }
             - { name: overblog_graphql.resolver, alias: "character_hero", method: "resolveHero" }

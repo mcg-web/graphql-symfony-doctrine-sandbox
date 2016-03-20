@@ -2,18 +2,23 @@
 # entry point into our schema. It gives us the ability to fetch
 # objects by their IDs, as well as to fetch the undisputed hero
 # of the Star Wars trilogy, R2-D2, directly.
+# This is the type that will be the root of our query, and the
+# entry point into our schema.
 #
 # This implements the following type system shorthand:
 #   type Query {
 #     hero(episode: Episode): Character
 #     human(id: String!): Human
 #     droid(id: String!): Droid
+#     rebels: Faction
+#     empire: Faction
+#     node(id: String!): Node
 #   }
 #
 Query:
     type: object
     config:
-        description: "A humanoid creature in the Star Wars universe."
+        description: "A humanoid creature in the Star Wars universe or a faction in the Star Wars saga."
         fields:
             hero:
                 type: "Character"
@@ -36,3 +41,14 @@ Query:
                         description: "id of the droid"
                         type: "String!"
                 resolve: "@=resolver('character_droid', [args])"
+            rebels:
+                type: "Faction"
+                resolve: "@=resolver('faction_rebels', [])"
+            empire:
+                type: "Faction"
+                resolve: "@=resolver('faction_empire', [])"
+            node:
+                builder: Node
+                builderConfig:
+                    nodeInterfaceType: Node
+                    idFetcher: '@=resolver("node", [value])'

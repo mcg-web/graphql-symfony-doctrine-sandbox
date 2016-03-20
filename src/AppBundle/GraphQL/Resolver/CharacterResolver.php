@@ -2,12 +2,9 @@
 
 namespace AppBundle\GraphQL\Resolver;
 
-require_once __DIR__ . '/../../../../vendor/webonyx/graphql-php/tests/StarWarsData.php';
-
 use AppBundle\Entity\Character;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
-use GraphQL\StarWarsData;
 
 class CharacterResolver implements ContainerAwareInterface
 {
@@ -16,10 +13,11 @@ class CharacterResolver implements ContainerAwareInterface
     public function resolveType(Character $character = null)
     {
         if (null === $character) {
-            return null;
+            return;
         }
 
         $typeResolver = $this->container->get('overblog_graphql.type_resolver');
+
         return $typeResolver->resolve($character->getType());
     }
 
@@ -44,6 +42,7 @@ class CharacterResolver implements ContainerAwareInterface
         if (null === $character) {
             return;
         }
+
         return $type === $character->getType() ? $character : null;
     }
 
@@ -62,11 +61,12 @@ class CharacterResolver implements ContainerAwareInterface
 
     /**
      * @param $id
+     *
      * @return Character|null
      */
     private function getCharacter($id)
     {
         return $this->container->get('doctrine.orm.default_entity_manager')
-            ->find('AppBundle:Character', (int)$id);
+            ->find('AppBundle:Character', (int) $id);
     }
 }

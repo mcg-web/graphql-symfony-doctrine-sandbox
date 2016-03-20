@@ -1,0 +1,25 @@
+language: php
+
+php:
+    - 5.4
+    - 7.0
+
+branches:
+    only:
+        - master
+        - /^\d+\.\d+$/
+
+matrix:
+    fast_finish: true
+
+cache:
+    directories:
+        - $HOME/.composer/cache
+
+before_install:
+    - phpenv config-rm xdebug.ini
+    - composer selfupdate
+
+install: composer update --prefer-dist --no-interaction
+
+script: vendor/bin/phpunit

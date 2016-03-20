@@ -3,7 +3,7 @@
 namespace AppBundle\Entity;
 
 /**
- * Ship
+ * Ship.
  */
 class Ship
 {
@@ -19,9 +19,8 @@ class Ship
      */
     private $name;
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -31,7 +30,18 @@ class Ship
     }
 
     /**
-     * Set name
+     * @param int $id
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Set name.
      *
      * @param string $name
      *
@@ -45,7 +55,7 @@ class Ship
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */

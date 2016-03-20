@@ -1,0 +1,17 @@
+# We define our basic ship type.
+#
+# This implements the following type system shorthand:
+#   type Ship : Node {
+#     id: String!
+#     name: String
+#   }
+Ship:
+    type: object
+    config:
+        description: "A ship in the Star Wars saga"
+        fields:
+            id: GlobalId
+            name:
+                type: "String"
+                description: "The name of the ship."
+        interfaces: [Node]

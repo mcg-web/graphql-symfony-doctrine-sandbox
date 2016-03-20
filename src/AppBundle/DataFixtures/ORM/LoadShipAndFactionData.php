@@ -56,8 +56,8 @@ class LoadShipAndFactionData implements FixtureInterface
                 'id' => '2',
                 'name' => 'Galactic Empire',
                 'type' => Faction::TYPE_EMPIRE,
-                'ships' => ['6', '7', '8']
-            ]
+                'ships' => ['6', '7', '8'],
+            ],
         ],
     ];
 
@@ -72,8 +72,7 @@ class LoadShipAndFactionData implements FixtureInterface
 
     private function loadShips(ObjectManager $manager, array $ships)
     {
-        foreach($ships as $data) {
-
+        foreach ($ships as $data) {
             $ship = new Ship();
             $ship->fromArray($data);
 
@@ -88,12 +87,12 @@ class LoadShipAndFactionData implements FixtureInterface
 
     private function loadFactions(ObjectManager $manager, array $factions)
     {
-        foreach($factions as $data) {
+        foreach ($factions as $data) {
             $ships = $data['ships'];
             unset($data['ships']);
             $faction = new Faction();
             $faction->fromArray($data);
-            foreach($ships as $shipId) {
+            foreach ($ships as $shipId) {
                 $faction->addShip($this->ships[$shipId]);
             }
             $manager->persist($faction);

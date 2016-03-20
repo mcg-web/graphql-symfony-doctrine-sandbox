@@ -1,0 +1,26 @@
+# We define our faction type, which implements the node interface.
+#
+# This implements the following type system shorthand:
+#   type Faction : Node {
+#     id: String!
+#     name: String
+#     ships: ShipConnection
+#   }
+Faction:
+    type: object
+    config:
+        description: "A faction in the Star Wars saga"
+        fields:
+            id: GlobalId
+            name:
+                type: "String"
+                description: "The name of the faction."
+            ships:
+                type: "ShipConnection"
+                description: "The ships used by the faction."
+                argsBuilder: ConnectionArgs
+                resolve: '@=resolver("faction_ships", [value, args])'
+            primaryFunction:
+                type: "String"
+                description: "The primary function of the droid."
+        interfaces: [Node]

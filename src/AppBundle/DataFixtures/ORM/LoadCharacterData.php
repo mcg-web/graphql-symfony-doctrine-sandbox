@@ -2,7 +2,7 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
-require_once __DIR__ . '/../../../../vendor/webonyx/graphql-php/tests/StarWarsData.php';
+require_once __DIR__.'/../../../../vendor/webonyx/graphql-php/tests/StarWarsData.php';
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -10,7 +10,7 @@ use AppBundle\Entity\Character;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use GraphQL\StarWarsData;
 
-class LoadUserData implements FixtureInterface
+class LoadCharacterData implements FixtureInterface
 {
     /** @var Character[] */
     private $characters = [];
@@ -24,7 +24,7 @@ class LoadUserData implements FixtureInterface
 
     private function loadCharacters(ObjectManager $manager, array $characters, $type)
     {
-        foreach($characters as $data) {
+        foreach ($characters as $data) {
             unset($data['friends']);
             $data['type'] = $type;
 
@@ -42,7 +42,7 @@ class LoadUserData implements FixtureInterface
 
     private function loadFriends(ObjectManager $manager, array $characters)
     {
-        foreach($characters as $data) {
+        foreach ($characters as $data) {
             $character = $this->characters[$data['id']];
             foreach ($data['friends'] as $friendId) {
                 $friend = $this->characters[$friendId];

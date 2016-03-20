@@ -1,0 +1,18 @@
+# We define a connection between a faction and its ships.
+#
+# connectionType implements the following type system shorthand:
+#   type ShipConnection {
+#     edges: [ShipEdge]
+#     pageInfo: PageInfo!
+#   }
+#
+# connectionType has an edges field - a list of edgeTypes that implement the
+# following type system shorthand:
+#   type ShipEdge {
+#     cursor: String!
+#     node: Ship
+#   }
+ShipConnection:
+    type: relay-connection
+    config:
+        nodeType: Ship

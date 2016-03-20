@@ -1,0 +1,28 @@
+#   input IntroduceShipInput {
+#     clientMutationId: string!
+#     shipName: string!
+#     factionId: ID!
+#   }
+#
+#   input IntroduceShipPayload {
+#     clientMutationId: string!
+#     ship: Ship
+#     faction: Faction
+#   }
+IntroduceShipInput:
+    type: relay-mutation-input
+    config:
+        fields:
+            shipName:
+                type: "String!"
+            factionId:
+                type: "String!"
+
+IntroduceShipPayload:
+    type: relay-mutation-payload
+    config:
+        fields:
+            ship:
+                type: "Ship"
+            faction:
+                type: "Faction"

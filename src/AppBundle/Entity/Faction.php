@@ -1,10 +1,11 @@
 <?php
 
 namespace AppBundle\Entity;
+
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Faction
+ * Faction.
  */
 class Faction
 {
@@ -34,7 +35,7 @@ class Faction
     private $type;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -42,7 +43,7 @@ class Faction
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -52,7 +53,18 @@ class Faction
     }
 
     /**
-     * Set name
+     * @param int $id
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Set name.
      *
      * @param string $name
      *
@@ -66,7 +78,7 @@ class Faction
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -76,7 +88,7 @@ class Faction
     }
 
     /**
-     * Add ship
+     * Add ship.
      *
      * @param Ship $ship
      *
@@ -90,7 +102,7 @@ class Faction
     }
 
     /**
-     * Remove ship
+     * Remove ship.
      *
      * @param Ship $ship
      */
@@ -100,7 +112,7 @@ class Faction
     }
 
     /**
-     * Get ships
+     * Get ships.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -110,7 +122,7 @@ class Faction
     }
 
     /**
-     * Set type
+     * Set type.
      *
      * @param string $type
      *
@@ -124,7 +136,7 @@ class Faction
     }
 
     /**
-     * Get type
+     * Get type.
      *
      * @return string
      */
