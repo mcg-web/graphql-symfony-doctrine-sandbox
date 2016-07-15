@@ -27,4 +27,4 @@ install: composer update --prefer-dist --no-interaction
 before_script:
   - mysql -e 'create database starwars_test;'
 
-script: vendor/bin/phpunit
+script: phpunit
