@@ -8,7 +8,7 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Character;
 use Doctrine\ORM\Mapping\ClassMetadata;
-use GraphQL\StarWarsData;
+use GraphQL\Tests\StarWarsData;
 
 class LoadCharacterData implements FixtureInterface
 {

@@ -957,26 +957,26 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/overblog/GraphQLBundle.git",
-                "reference": "be250e453796191fff47d649ad9ac683ba07fda9"
+                "reference": "d622d4b58bf09c58210c5f9efd4ff33b503829ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overblog/GraphQLBundle/zipball/be250e453796191fff47d649ad9ac683ba07fda9",
-                "reference": "be250e453796191fff47d649ad9ac683ba07fda9",
+                "url": "https://api.github.com/repos/overblog/GraphQLBundle/zipball/d622d4b58bf09c58210c5f9efd4ff33b503829ea",
+                "reference": "d622d4b58bf09c58210c5f9efd4ff33b503829ea",
                 "shasum": ""
             },
             "require": {
                 "doctrine/doctrine-cache-bundle": "^1.2",
+                "overblog/graphql-php-generator": "^0.2.2",
                 "php": "^5.4|~7.0",
                 "symfony/expression-language": "^2.7|^3.0",
                 "symfony/framework-bundle": "^2.7|^3.0",
                 "symfony/options-resolver": "^2.7|^3.0",
                 "symfony/property-access": "^2.7|^3.0",
-                "webonyx/graphql-php": "^0.5.8"
+                "webonyx/graphql-php": "0.6.4"
             },
             "require-dev": {
-                "fabpot/php-cs-fixer": "^1.11",
-                "phpunit/phpunit": "^4.1|^5.1",
+                "friendsofphp/php-cs-fixer": "^1.11",
                 "sensio/framework-extra-bundle": "^3.0.13",
                 "sllh/php-cs-fixer-styleci-bridge": "^1.5",
                 "symfony/browser-kit": "^2.7|^3.0",
@@ -995,7 +995,10 @@
             "autoload": {
                 "psr-4": {
                     "Overblog\\GraphQLBundle\\": ""
-                }
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1012,7 +1015,58 @@
                 "Relay",
                 "graphql"
             ],
-            "time": "2016-03-20 11:21:10"
+            "time": "2016-07-11 14:41:00"
+        },
+        {
+            "name": "overblog/graphql-php-generator",
+            "version": "v0.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/overblog/GraphQLPhpGenerator.git",
+                "reference": "412d6b1d2cd52ca2b06b0aca7893b7c8354c1f59"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/overblog/GraphQLPhpGenerator/zipball/412d6b1d2cd52ca2b06b0aca7893b7c8354c1f59",
+                "reference": "412d6b1d2cd52ca2b06b0aca7893b7c8354c1f59",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4|~7.0"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "^1.11",
+                "phpunit/phpunit": "^4.1|^5.1",
+                "sllh/php-cs-fixer-styleci-bridge": "^1.5",
+                "symfony/expression-language": "^2.7|^3.0",
+                "symfony/filesystem": "^2.7|^3.0",
+                "symfony/process": "^2.7|^3.0",
+                "symfony/yaml": "^2.7|^3.0",
+                "webonyx/graphql-php": "0.6.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Overblog\\GraphQLGenerator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Overblog",
+                    "homepage": "http://www.over-blog.com"
+                }
+            ],
+            "description": "GraphQL types generator",
+            "keywords": [
+                "generator",
+                "graphql",
+                "type"
+            ],
+            "time": "2016-05-10 15:02:46"
         },
         {
             "name": "paragonie/random_compat",
@@ -1102,16 +1156,16 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v5.0.4",
+            "version": "v5.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "2c167426fc24f9de116345195bc1697a748ee847"
+                "reference": "a9c4723cbdbc6cf7fbfdfde3c639cb1943f0293a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/2c167426fc24f9de116345195bc1697a748ee847",
-                "reference": "2c167426fc24f9de116345195bc1697a748ee847",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/a9c4723cbdbc6cf7fbfdfde3c639cb1943f0293a",
+                "reference": "a9c4723cbdbc6cf7fbfdfde3c639cb1943f0293a",
                 "shasum": ""
             },
             "require": {
@@ -1150,7 +1204,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2016-02-12 16:21:30"
+            "time": "2016-06-23 16:11:33"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -1710,16 +1764,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v3.0.3",
+            "version": "v3.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "09ae53562ce8b7842206efa217ec81442975f055"
+                "reference": "814b8cdd556bc833f56f5d488534e17eec369337"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/09ae53562ce8b7842206efa217ec81442975f055",
-                "reference": "09ae53562ce8b7842206efa217ec81442975f055",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/814b8cdd556bc833f56f5d488534e17eec369337",
+                "reference": "814b8cdd556bc833f56f5d488534e17eec369337",
                 "shasum": ""
             },
             "require": {
@@ -1787,7 +1841,7 @@
                 "doctrine/dbal": "~2.4",
                 "doctrine/doctrine-bundle": "~1.4",
                 "doctrine/orm": "~2.4,>=2.4.5",
-                "egulias/email-validator": "~1.2",
+                "egulias/email-validator": "~1.2,>=1.2.1",
                 "monolog/monolog": "~1.11",
                 "ocramius/proxy-manager": "~0.4|~1.0|~2.0",
                 "phpdocumentor/reflection": "^1.0.7",
@@ -1805,6 +1859,7 @@
                     "Symfony\\Bridge\\Doctrine\\": "src/Symfony/Bridge/Doctrine/",
                     "Symfony\\Bridge\\Monolog\\": "src/Symfony/Bridge/Monolog/",
                     "Symfony\\Bridge\\ProxyManager\\": "src/Symfony/Bridge/ProxyManager/",
+                    "Symfony\\Bridge\\Swiftmailer\\": "src/Symfony/Bridge/Swiftmailer/",
                     "Symfony\\Bridge\\Twig\\": "src/Symfony/Bridge/Twig/",
                     "Symfony\\Bundle\\": "src/Symfony/Bundle/",
                     "Symfony\\Component\\": "src/Symfony/Component/"
@@ -1835,7 +1890,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2016-02-28 21:33:29"
+            "time": "2016-06-30 16:30:29"
         },
         {
             "name": "twig/twig",
@@ -1900,16 +1955,16 @@
         },
         {
             "name": "webonyx/graphql-php",
-            "version": "v0.5.8",
+            "version": "v0.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webonyx/graphql-php.git",
-                "reference": "6fc46beb3fbe2720f489c0ebc7ffbe579fc69823"
+                "reference": "0c1ad084d4e9488b7ec72680f59316af34454964"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/6fc46beb3fbe2720f489c0ebc7ffbe579fc69823",
-                "reference": "6fc46beb3fbe2720f489c0ebc7ffbe579fc69823",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/0c1ad084d4e9488b7ec72680f59316af34454964",
+                "reference": "0c1ad084d4e9488b7ec72680f59316af34454964",
                 "shasum": ""
             },
             "require": {
@@ -1920,9 +1975,9 @@
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "src/"
-                ]
+                "psr-4": {
+                    "GraphQL\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1934,7 +1989,7 @@
                 "api",
                 "graphql"
             ],
-            "time": "2016-03-12 07:46:21"
+            "time": "2016-06-11 06:43:32"
         }
     ],
     "packages-dev": [
