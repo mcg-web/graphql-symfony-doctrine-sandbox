@@ -51,7 +51,7 @@ Query:
                 type: "Faction"
                 resolve: "@=resolver('faction_fake', [])"
             node:
-                builder: Node
+                builder: Relay::Node
                 builderConfig:
                     nodeInterfaceType: Node
                     idFetcher: '@=resolver("node", [value])'

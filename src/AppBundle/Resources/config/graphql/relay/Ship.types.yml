@@ -10,7 +10,7 @@ Ship:
     config:
         description: "A ship in the Star Wars saga"
         fields:
-            id: GlobalId
+            id: { builder: Relay::GlobalId }
             name:
                 type: "String"
                 description: "The name of the ship."

@@ -18,20 +18,20 @@
     },
     "require": {
         "php": ">=5.5.9",
-        "symfony/symfony": "3.0.*",
+        "symfony/symfony": "3.2.*",
         "doctrine/orm": "^2.5",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-cache-bundle": "^1.2",
-        "symfony/swiftmailer-bundle": "^2.3",
         "symfony/monolog-bundle": "^2.8",
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
-        "overblog/graphql-bundle": "dev-master"
+        "overblog/graphql-bundle": "dev-master",
+        "twig/twig": "^1.30"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^3.0",
+        "symfony/phpunit-bridge": "^3.2",
         "doctrine/doctrine-fixtures-bundle": "^2.3",
         "phpunit/phpunit": "^4.1|^5.1",
         "liip/functional-test-bundle": "^1.5"

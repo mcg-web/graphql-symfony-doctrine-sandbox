@@ -11,14 +11,14 @@ Faction:
     config:
         description: "A faction in the Star Wars saga"
         fields:
-            id: GlobalId
+            id: { builder: Relay::GlobalId }
             name:
                 type: "String"
                 description: "The name of the faction."
             ships:
                 type: "ShipConnection"
                 description: "The ships used by the faction."
-                argsBuilder: ConnectionArgs
+                argsBuilder: Relay::Connection
                 resolve: '@=resolver("faction_ships", [value, args])'
             primaryFunction:
                 type: "String"
