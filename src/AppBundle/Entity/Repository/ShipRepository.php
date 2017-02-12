@@ -15,7 +15,7 @@ class ShipRepository extends EntityRepository
         ;
     }
 
-    public function retrieveShipsByFactionId($factionId, $offset = 0, $limit = 0)
+    public function retrieveShipsIDsByFactionId($factionId, $offset = 0, $limit = 0)
     {
         $qb = $this->shipByFactionIdQueryBuilder($factionId);
 
@@ -23,7 +23,7 @@ class ShipRepository extends EntityRepository
             $qb->setMaxResults($limit);
         }
 
-        return $ships = $qb->select('s')
+        return $ships = $qb->select('s.id')
             ->setFirstResult($offset)
             ->getQuery()
             ->getResult();

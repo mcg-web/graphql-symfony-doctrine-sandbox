@@ -14,5 +14,6 @@ class AppExtension extends Extension
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('graphql.yml');
         $loader->load('graphql-relay.yml');
+        $loader->load('loaders.yml');
     }
 }

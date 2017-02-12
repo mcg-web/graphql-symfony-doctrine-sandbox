@@ -1,0 +1,15 @@
+services:
+    app.sync_promise_adapter:
+        class: AppBundle\GraphQL\PromiseAdapter\SyncPromiseAdapter
+
+    app.graph.ship_repository:
+        class: AppBundle\Entity\Repository\ShipRepository
+        factory: ["@doctrine.orm.entity_manager", getRepository]
+        arguments:
+            - AppBundle\Entity\Repository\Ship
+
+    app.graph.ships_loader:
+        class: AppBundle\GraphQL\Loader\ShipLoader
+        arguments:
+            - "@overblog_graphql.promise_adapter"
+            - "@app.graph.ship_repository"

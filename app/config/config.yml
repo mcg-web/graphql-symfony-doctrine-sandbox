@@ -69,3 +69,14 @@ overblog_graphql:
         schema:
             query: Query
             mutation: Mutation
+    services:
+        promise_adapter: "app.sync_promise_adapter"
+
+#dataloader
+overblog_dataloader:
+    defaults:
+        promise_adapter: "overblog_dataloader.webonyx_graphql_sync_promise_adapter"
+    loaders:
+        ships:
+            alias: "ships_loader"
+            batch_load_fn: "@app.graph.ships_loader:all"

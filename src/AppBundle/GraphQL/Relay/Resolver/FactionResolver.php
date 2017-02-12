@@ -66,19 +66,27 @@ class FactionResolver implements ContainerAwareInterface
         $limit = $endOffset - $startOffset;
         //--------------------------------------------------------------------------------------------------------------
 
-        $ships = $repository->retrieveShipsByFactionId($faction->getId(), $offset, $limit);
+        $shipsIDs = $repository->retrieveShipsIDsByFactionId($faction->getId(), $offset, $limit);
 
-        $connection = ConnectionBuilder::connectionFromArraySlice(
-            $ships,
-            $args,
-            [
-                'sliceStart' => $offset,
-                'arrayLength' => $arrayLength,
-            ]
-        );
-        $connection->sliceSize = count($ships);
+        $onFulFilled = function ($ships) use ($offset, $arrayLength, $args) {
+            $connection = ConnectionBuilder::connectionFromArraySlice(
+                $ships,
+                $args,
+                [
+                    'sliceStart' => $offset,
+                    'arrayLength' => $arrayLength,
+                ]
+            );
+            $connection->sliceSize = count($ships);
+        };
 
-        return $connection;
+        if (empty($shipsIDs)) {
+            return $onFulFilled([]);
+        }
+
+        $promise = $this->container->get('ships_loader')->loadMany($shipsIDs)->then($onFulFilled);
+
+        return $promise;
     }
 
     private function getFactionByType($type)
