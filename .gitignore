@@ -14,3 +14,6 @@
 !var/SymfonyRequirements.php
 /vendor/
 /web/bundles/
+/bin/
+!/bin/console
+!/bin/symfony_requirements

@@ -2,6 +2,10 @@
     "name": "mcg-web/graphql-symfony-doctrine-sandbox",
     "license": "MIT",
     "type": "project",
+    "config" : {
+        "bin-dir": "bin",
+        "sort-packages": true
+    },
     "autoload": {
         "psr-4": {
             "": "src/"
