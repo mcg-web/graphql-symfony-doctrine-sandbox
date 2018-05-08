@@ -64,7 +64,7 @@ doctrine:
 #graphql
 overblog_graphql:
     definitions:
-        internal_error_message: "An error occurred, please retry later or contact us!"
+#        internal_error_message: "An error occurred, please retry later or contact us!"
         config_validation: "%kernel.debug%"
         schema:
             query: Query
