@@ -1,13 +1,35 @@
-web:
-    image: vincentchalamon/symfony
-    volumes:
-        - .:/var/www
-    net: "host"
-    tty: true
+version: "2"
 
-mysql:
-    image: mysql
-    net: "host"
-    environment:
-        MYSQL_USER: root
-        MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+services:
+    web:
+        build: .
+        volumes:
+            - .:/var/www
+        networks:
+            - graphql-sandbox
+        tty: true
+        ports:
+            - "80:80"
+
+    mysql:
+        image: mysql
+        environment:
+            MYSQL_USER: root
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        networks:
+            - graphql-sandbox
+
+    blackfire:
+        image: blackfire/blackfire
+        environment:
+            - BLACKFIRE_SERVER_ID
+            - BLACKFIRE_SERVER_TOKEN
+            - BLACKFIRE_CLIENT_ID
+            - BLACKFIRE_CLIENT_TOKEN
+        networks:
+            - graphql-sandbox
+
+
+networks:
+    graphql-sandbox:
+        driver: bridge
